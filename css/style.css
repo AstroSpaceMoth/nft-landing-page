@@ -5,17 +5,20 @@
 /* GLOBAL STYLES */
 
 :root {
-  font-size: 16px;
+  font-size: 1em;
   font-family: 'Play';
   --font-primary: 'Play', sans-serif;
   --font-secondary: 'Play', serif;
   --font-code: 'Play', monospace;
-  --bg-dark: #07050d;
-  --bg-mid: #0d0a1b;
-  --bg-light: #1e1445;
+  --dark: #0A0B0B;
+  --mid: #131515;
+  --light: #2B2C28;
   --font-color: #ffffff;
   --btn-bg-color: #ffffff;
   --accent-color: #571fc8;
+  --primary-color: #7DE2D1;
+  --secondary-color: #339989;
+  --tertiary-color: #2F6359;
   --header-shadow: #000 0px 0px 50px;
 }
 
@@ -30,7 +33,7 @@ body {
   padding: 0;
   font-family: 'Play', sans-serif;
   color: white;
-  background: var(--bg-mid);
+  background: var(--mid);
 }
 
 body::-webkit-scrollbar {
@@ -38,11 +41,11 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-track{
-  background: var(--bg-dark);
+  background: var(--dark);
 }
 
 body::-webkit-scrollbar-thumb{
-  background: var(--bg-light);
+  background: var(--primary-color);
 }
 
 main {
@@ -54,9 +57,8 @@ main {
   width: 5rem;
   height: 100vh;
   position: fixed;
-  background-color: var(--bg-dark);
-  transition: width 200ms ease;
-  z-index: 1;
+  background-color: var(--tertiary-color);
+  transition: width 400ms ease-out;
 }
 
 .navbar-nav {
@@ -85,8 +87,10 @@ main {
 }
 
 .link-text {
-  display: none;
-  margin-left: 1rem;
+  transition: opacity 100ms ease-in, margin-left 400ms ease-out;
+  opacity: 0;
+  margin-left: -5rem;
+  z-index: -1;
 }
 
 .nav-link svg {
@@ -95,11 +99,13 @@ main {
 }
 
 .navbar:hover {
-  width: 16rem;
+  width: 10rem;
 }
 
 .navbar:hover .link-text {
-  display: block;
+  opacity: 1;
+  margin-left: 1rem;
+  transition: opacity 1000ms linear, margin-left 400ms ease-out;
 }
 
 .container {
@@ -133,15 +139,15 @@ header .container {
 .btn {
   display: inline-block;
   padding: 1rem 2rem;
-  background: var(--btn-bg-color);
-  color: var(--accent-color);
+  background: var(--primary-color);
+  color: var(--mid);
   font-family: var(--font-secondary);
   font-style: normal;
   font-weight: bold;
   font-size: 1rem;
   text-transform: capitalize;
   transition: all 0.3s ease;
-  box-shadow: 4px 4px 0 0 var(--accent-color);
+  box-shadow: 4px 4px 0 0 var(--tertiary-color);
   cursor: pointer;
   position: relative;
   text-decoration: none;
@@ -174,74 +180,11 @@ section {
   padding: 100px 20vw;
 }
 
-.dark {
-  background: #0d0a1b;
-}
-
-.orange {
-  background: #ff9c00;
-}
-
-.pink {
-  background: #e400ff;
-}
-
-.cyan {
-  background: #50d8ff;
-}
-
-.purple {
-  background: #571fc8;
-}
-
-.curve {
-  position: absolute;
-  height: 225px;
-  width: 100%;
-  bottom: 0;
-}
-
-.curve::before {
-  content: '';
-  display: block;
-  position: absolute;
-  border-radius: 100% 50%;
-  width: 100%;
-  height: 100%;
-  background-color: #0d0a1b;
-  transform: translate(50%, 60%);
-}
-
-.curve::after {
-  content: '';
-  display: block;
-  position: absolute;
-  border-radius: 100% 50%;
-  width: 100%;
-  height: 100%;
-  background-color: #571fc8;
-  transform: translate(-50%, 40%);
-  z-index: -1;
-}
-
-.bubble::after {
-  content: '';
-  border-top-left-radius: 50% 100%;
-  border-top-right-radius: 50% 100%;
-  position: absolute;
-  bottom: 0;
-  height: 85%;
-  width: 100%;
-  background-color: #ff9c00;;
-  z-index: -1;
-}
-
 .spacer {
-  aspect-ratio: 960/300;
+  aspect-ratio: 675/900;
   width: 100%;
-  background-repeat: no-repeat;
-  background-position: center;
   background-size: cover;
+  background-attachment: fixed;
 }
 
 .layer1 {
@@ -252,8 +195,13 @@ section {
   background-image: url('../feather-solid.svg');
 }
 
+.navspacer {
+  background-image: url('../layered-peaks-haikei.svg');
+  height:rem;
+}
+
 #Icons {
-  fill: var(--bg-light);
+  fill: var(--primary-color);
 }
 
 .countdown {
@@ -270,15 +218,15 @@ section {
 }
 .countdown .clock-item {
   list-style: none;
-  width: 70px;
+  width: 4.5rem;
   height: auto;
 }
 .countdown .clock-item .count-number {
-  background: var(--accent-color);
-  color: var(--font-color);
+  background: var(--secondary-color);
+  color: var(--mid);
   font-size: 2rem;
-  font-weight: 700;
-  font-family: var(--font-secondary);
+  font-weight: bold;
+  font-family: var(--mid);
   padding: 1rem;
   display: inline-block;
   width: 100%;
@@ -288,9 +236,10 @@ section {
 }
 .countdown .clock-item .count-text {
   background: var(--btn-bg-color);
-  font-family: var(--font-secondary);
+  font-family: var(--mid);
   font-size: 1.1rem;
-  color: var(--bg-color);
+  font-weight: bold;
+  color: var(--mid);
   padding: 0.5rem 0.7rem;
   display: inline-block;
   width: 100%;
@@ -300,10 +249,10 @@ section {
 }
 
 .countdown h1 {
-  text-shadow: 2px 2px 0 var(--accent-color);
+  text-shadow: 2px 2px 0 var(--tertiary-color);
   font-style: normal;
   margin: 2rem 0;
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   text-align: center;
 }
 
