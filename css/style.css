@@ -61,22 +61,18 @@ main {
   position: relative;
   height: 100%; 
   width: 100%;
+  margin-top: -50%;
 }
 
 .background {
-  position: fixed;
-  left: 0;
-  right: 0;
-  z-index: 1;
-  display: block;
-  background-image: url('pexels-element-digital-1293260.jpg');
-  width: 1200px;
-  height: 800px;
-  -webkit-filter: blur(5px);
-  -moz-filter: blur(5px);
-  -o-filter: blur(5px);
-  -ms-filter: blur(5px);
-  filter: blur(5px);
+  background-image: url('../pexels-element-digital-1293260.jpg');
+  padding: 0;
+  height: 1000px;
+  filter: blur(8px);
+  -webkit-filter: blur(8px);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 .logo {
@@ -291,8 +287,9 @@ section {
 
 #Header {
   fill: #359BCE;
+  stroke: #0E1F2F;
+  stroke-width: 10;
   background-color: #060d14;
-  
 } 
 
 .countdown {
