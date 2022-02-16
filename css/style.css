@@ -10,15 +10,15 @@
   --font-primary: 'Play', sans-serif;
   --font-secondary: 'Play', serif;
   --font-code: 'Play', monospace;
-  --dark: #0A0B0B;
-  --mid: #131515;
-  --light: #2B2C28;
+  --dark: #060d14;
+  --mid: #0E1F2F;
+  --light: #294661;
   --font-color: #ffffff;
   --btn-bg-color: #ffffff;
-  --accent-color: #571fc8;
-  --primary-color: #7DE2D1;
-  --secondary-color: #339989;
-  --tertiary-color: #2F6359;
+  --accent-color: #E2A775;
+  --primary-color: #359BCE;
+  --secondary-color: #1F78B6;
+  --tertiary-color: #1a5d8d;
   --header-shadow: #000 0px 0px 50px;
 }
 
@@ -54,15 +54,13 @@ main {
 }
 
 .header {
-  font-weight: bold;
-  text-transform: uppercase;
-  text-align: center;
-  font-size: 5rem;
-  max-width: 10ch;
+  display: flex;
 }
 
 .header-container {
-  padding: 0;
+  position: relative;
+  height: 100%; 
+  width: 100%;
 }
 
 .logo {
@@ -89,6 +87,11 @@ main {
   background-color: var(--secondary-color);
   transition: width 400ms ease-out 100ms;
   z-index: 1;
+  filter:
+    drop-shadow(-10px -10px 0px #060d14) 
+    drop-shadow(10px -10px 0px #060d14) 
+    drop-shadow(10px 10px 0px #060d14)
+    drop-shadow(-10px 10px 0px #060d14)
 }
 
 .navbar:hover .logo svg {
@@ -262,8 +265,19 @@ section {
 }
 
 #Icons {
-  fill: var(--primary-color);
+  fill: var(--accent-color);
+  filter:
+    drop-shadow(-1px -1px 0px black) 
+    drop-shadow(2px -1px 0px black) 
+    drop-shadow(2px 2px 0px black)
+    drop-shadow(-1px 2px 0px black)
 }
+
+#Header {
+  fill: #359BCE;
+  background-color: #060d14;
+  
+} 
 
 .countdown {
   display: flex;
@@ -334,7 +348,15 @@ section {
 
 @media only screen and (max-width: 900px) {
   .header {
-    font-size: 4rem;
+    display:contents;
+  }
+
+  .header-container {
+    position: relative;
+    height: 100%; 
+    width: 125%;
+    margin-left: -12.5%;
+    margin-top: -17.25%;
   }
 
   .navbar {
@@ -387,6 +409,9 @@ section {
 
   .header {
     font-size: 5rem;
+  }
+
+  .header-container {
   }
 
   .navbar {
